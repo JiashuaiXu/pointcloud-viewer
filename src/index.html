@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Cloud Viewer - Potree (Vanilla)</title>
+</head>
+<body>
+    <div id="app">
+        <div id="viewer-container"></div>
+        
+        <div id="info-panel" class="info-panel">
+            <h2>点云查看器</h2>
+            <p>使用 Potree 渲染 (原始实现)</p>
+            <p class="info-item">
+                <span class="label">点数量:</span>
+                <span class="value" id="point-count">-</span>
+            </p>
+            <p class="info-item">
+                <span class="label">FPS:</span>
+                <span class="value" id="fps">-</span>
+            </p>
+            <div id="loading-indicator" class="loading-indicator" style="display: none;">
+                <span>加载中...</span>
+            </div>
+            <div id="error-message" class="error-message" style="display: none;">
+                <span id="error-text"></span>
+            </div>
+        </div>
+
+        <div id="control-panel" class="control-panel">
+            <h3>控制面板</h3>
+            <label class="file-input-label">
+                <input 
+                    type="file" 
+                    id="file-input"
+                    class="file-input"
+                    accept=".las,.laz,.ply,.pcd,.potree"
+                />
+                <span class="file-input-text">选择点云文件</span>
+            </label>
+            <button id="reset-camera" class="control-button">重置相机</button>
+            <div class="tips">
+                <p>支持格式: .las, .laz, .ply, .pcd, .potree</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
+
