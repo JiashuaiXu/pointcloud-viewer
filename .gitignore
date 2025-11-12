@@ -35,3 +35,11 @@ lerna-debug.log*
 
 # OS
 Thumbs.db
+
+# Editor
+.cursorindexingignore
+.specstory/
+
+# Large data files (use Git LFS if needed)
+shared/data/*.pcd
+!shared/data/test-small.pcd
