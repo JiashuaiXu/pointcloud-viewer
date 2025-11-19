@@ -17,7 +17,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.160.0",
-    "potree-core": "^1.8.0"
+    "potree-core": "^2.0.11"
   },
   "devDependencies": {
     "@types/three": "^0.160.0",
