@@ -1,34 +1,26 @@
 declare module 'potree-core' {
   import * as THREE from 'three'
+  import { RequestManager } from 'potree-core/dist/loading2/RequestManager'
 
-  export class Viewer {
-    constructor(container: HTMLElement)
-    scene: THREE.Scene
-    camera: THREE.PerspectiveCamera
-    renderer: THREE.WebGLRenderer
-    controls: any
-    setEDLEnabled(enabled: boolean): void
-    setFOV(fov: number): void
-    setPointBudget(budget: number): void
-    loadSettingsFromURL(): void
-    update(): void
+  export class Potree {
+    pointBudget: number
+    loadPointCloud(
+      url: string,
+      baseUrl: string | RequestManager
+    ): Promise<PointCloudOctree>
+    updatePointClouds(
+      pointClouds: PointCloudOctree[],
+      camera: THREE.Camera,
+      renderer: THREE.WebGLRenderer
+    ): void
   }
 
-  export class PointCloudOctree {
-    constructor()
+  export class PointCloudOctree extends THREE.Object3D {
+    potree: Potree
+    pcoGeometry: any
+    boundingBox: THREE.Box3
+    boundingSphere: THREE.Sphere
     material: any
     visible: boolean
-    position: THREE.Vector3
-    rotation: THREE.Euler
-    scale: THREE.Vector3
   }
-
-  export function loadPointCloud(
-    url: string,
-    name: string,
-    callback: (event: { pointcloud: PointCloudOctree }) => void
-  ): void
-
-  export const PointCloudTree: any
 }
-
